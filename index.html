@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>2026 도쿄 2박 3일 여행 보드 (12/18~12/20)</title>
+  <meta property="og:title" content="✈️ 우리들의 도쿄 2박 3일 여행 일정표">
+  <meta property="og:description" content="12/18(금) ~ 12/20(일) | 숙소: 하마마츠초 스테이션 | 4인 미식 & 쇼핑 코스">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif; background-color: #f8fafc; }
+    .tab-active { background-color: #1e293b; color: #ffffff; box-shadow: 0 4px 12px rgba(30, 41, 59, 0.25); }
+    .step-active { border-color: #ef4444; background-color: #fff1f2; transform: translateY(-2px); }
+    .fade-in { animation: fadeIn 0.25s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body class="text-slate-800 pb-12">
+
+  <!-- 상단 헤더 -->
+  <header class="bg-gradient-to-r from-rose-500 via-red-500 to-orange-500 text-white pt-8 pb-6 px-5 shadow-md rounded-b-3xl">
+    <div class="max-w-md mx-auto">
+      <div class="flex items-center justify-between mb-2">
+        <span class="bg-white/20 backdrop-blur-sm text-xs font-bold px-3 py-1 rounded-full">👥 4인 우정여행</span>
+        <span class="text-xs font-semibold bg-black/20 px-2.5 py-1 rounded-full">2026.12.18(금) - 12.20(일)</span>
+      </div>
+      <h1 class="text-2xl font-extrabold tracking-tight mt-1">✈️ 도쿄 2박 3일 타임라인 보드</h1>
+      <p class="text-sm text-rose-100 mt-1 flex items-center gap-1">
+        🏨 거점: <strong>Premium Apart MONday 하마마츠초 스테이션</strong>
+      </p>
+    </div>
+  </header>
+
+  <main class="max-w-md mx-auto px-4 -mt-4">
+    <!-- 날짜 선택 탭 -->
+    <div class="bg-white p-1.5 rounded-2xl shadow-sm border border-slate-100 grid grid-cols-3 gap-1.5 mb-5">
+      <button onclick="selectDay(0)" id="tab-0" class="py-2.5 px-2 rounded-xl text-xs font-bold transition-all tab-active">
+        DAY 1 (금)<br><span class="text-[11px] font-normal opacity-80">도착 & 야경</span>
+      </button>
+      <button onclick="selectDay(1)" id="tab-1" class="py-2.5 px-2 rounded-xl text-xs font-bold transition-all text-slate-600 hover:bg-slate-100">
+        DAY 2 (토) ⭐<br><span class="text-[11px] font-normal opacity-80">핫플 & 미식</span>
+      </button>
+      <button onclick="selectDay(2)" id="tab-2" class="py-2.5 px-2 rounded-xl text-xs font-bold transition-all text-slate-600 hover:bg-slate-100">
+        DAY 3 (일)<br><span class="text-[11px] font-normal opacity-80">면세 & 귀국</span>
+      </button>
+    </div>
+
+    <!-- 선택된 스팟 상세 카드 (상단 하이라이트) -->
+    <div id="detail-card" class="bg-white rounded-2xl p-5 shadow-md border-2 border-rose-100 mb-5 fade-in">
+      <!-- JS로 렌더링 -->
+    </div>
+
+    <!-- 타임라인 리스트 -->
+    <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
+      <div class="flex items-center justify-between mb-3 px-1">
+        <h2 id="day-title" class="text-sm font-extrabold text-slate-700">일정 타임라인 (클릭하여 상세 보기)</h2>
+        <span class="text-[11px] text-rose-500 font-semibold">항목을 눌러보세요 👇</span>
+      </div>
+      <div id="timeline-list" class="space-y-2.5">
+        <!-- JS로 렌더링 -->
+      </div>
+    </div>
+
+    <!-- 필수 예약 체크리스트 -->
+    <div class="mt-6 bg-slate-800 text-white rounded-2xl p-5 shadow-sm">
+      <h3 class="text-sm font-bold text-amber-300 mb-3 flex items-center gap-1.5">
+        📌 출발 전 필수 예약 체크리스트
+      </h3>
+      <ul class="text-xs space-y-2.5 text-slate-200">
+        <li class="flex items-start gap-2">
+          <span class="text-rose-400 font-bold">1.</span>
+          <div><strong>스시노미도리 시부야점:</strong> 12/19(토) 12:30 (4인 테이블석 / TableCheck 사전 결제)</div>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-rose-400 font-bold">2.</span>
+          <div><strong>히츠마부시 나고야 빈쵸 긴자점:</strong> 12/19(토) 18:15 (4인석 온라인 예약 추천)</div>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-rose-400 font-bold">3.</span>
+          <div><strong>시부야 스카이 전망대:</strong> 11월 21일 오픈! 12/19(토) 15:30~16:00 타임 예매</div>
+        </li>
+      </ul>
+    </div>
+  </main>
+
+  <script>
+    const scheduleData = [
+      {
+        title: "DAY 1 (12/18 금) - 도쿄 도착 & 도쿄타워 야경",
+        nodes: [
+          {
+            time: "16:00 - 19:00",
+            icon: "✈️",
+            place: "나리타 국제공항 도착",
+            area: "나리타 공항",
+            tag: "교통편 탑승",
+            transport: "케이세이 스카이액세스 특급(다이몬역 직통) 또는 스카이라이너 (약 65분)",
+            memo: "오후 4시 비행기 탑승 후 저녁 도착! 입국 수속 후 다이몬/하마마츠초 방면 열차 탑승.",
+            mapUrl: "https://www.google.com/maps/search/?api=1&query=Narita+International+Airport"
+          },
+          {
+            time: "20:40 - 21:10",
+            icon: "🏨",
+            place: "Premium Apart MONday 하마마츠초 스테이션",
+            area: "하마마츠초역 도보 2분",
+            tag: "2026 신축 4인실",
+            transport: "다이몬역 도보 3분 / 하마마츠초역 도보 2분",
+            memo: "체크인 후 캐리어 정리 및 가볍게 밤 마실 준비!",
+            mapUrl: "https://www.google.com/maps/search/?api=1&query=Premium+Apart+MONday+Hamamatsucho+Station"
+          },
+          {
+            time: "21:15 - 23:00",
+            icon: "🍻",
+            place: "다이몬 로컬 이자카야 & 도쿄타워 야경",
+            area: "다이몬 · 시바공원",
+            tag: "첫날 밤 만찬",
+            transport: "숙소에서 도보 3~15분 산책",
+            memo: "숙소 앞 야키토리/야키니쿠 맛집에서 생맥주 한잔 후 붉게 빛나는 도쿄타워 밤산책.",
+            mapUrl: "https://www.google.com/maps/search/?api=1&query=Tokyo+Tower"
+          }
+        ]
+      },
+      {
+        title: "DAY 2 (12/19 토) - 도쿄 핫플 & 미식 풀코스",
+        nodes: [
+          {
+            time: "09:30 - 12:00",
+            icon: "🛍️",
+            place: "하라주쿠 · 오모테산도 산책 (또는 센소지)",
+            area: "하라주쿠 · 오모테산도",
+            tag: "트렌디 쇼핑",
+            transport: "하마마츠초역에서 JR 야마노테선 직통 -> 시부야까지 도보 산책",
+            memo: "편집숍과 카페 구경하며 시부야 방향으로 가로수길 산책 (전통 사찰을 원하면 아사쿠사 센소지로 대체 가능).",
+            mapUrl: "https://www.google.com/maps/search/?api=1&query=Omotesando+Hills"
+          },
+          {
+            time: "12:30 - 14:00",
+            icon: "🍣",
+            place: "[점심] 스시노미도리 시부야점",
+            area: "시부야 마크시티 이스트몰 4층",
+            tag: "테이블체크 예약 필수",
+            transport: "오모테산도에서 도보 또는 전철 1정거장",
+            memo: "4인 테이블석 사전 예약으로 대기 줄 없이 바로 입성! (15분 이상 지각 시 자동 취소 주의)",
+            mapUrl: "https://www.google.com/maps/search/?api=1&query=Midori+Sushi+Shibuya",
+            bookUrl: "https://www.tablecheck.com/ko/shops/sushinomidori-shibuya/reserve"
+          },
+          {
+            time: "14:00 - 17:30",
+            icon: "🌇",
+            place: "시부야 쇼핑 & 시부야 스카이 전망대",
+            area: "시부야 스크램블 스퀘어",
+            tag: "4주 전 예매 필수",
+            transport: "도보 5분 이동",
+            memo: "파르코·로프트 쇼핑 후 15:30~16:00 타임으로 입장해 도쿄의 노을과 야경을 한 번에 감상!",
+            mapUrl: "https://www.google.com/maps/search/?api=1&query=SHIBUYA+SKY"
+          },
+          {
+            time: "18:15 - 19:45",
+            icon: "🍱",
+            place: "[저녁] 히츠마부시 나고야 빈쵸 긴자점",
+            area: "긴자 마로니에 게이트 1 (12층)",
+            tag: "장어덮밥 만찬",
+            transport: "시부야역 -> 긴자역 (도쿄 메트로 긴자선 직통 16분)",
+            memo: "겉바속촉 숯불 장어덮밥과 오차즈케! 백화점 식당가라 4인이 쾌적하게 식사 가능.",
+            mapUrl: "https://www.google.com/maps/search/?api=1&query=Hitsumabushi+Bincho+Ginza"
+          },
+          {
+            time: "20:00 - 22:00",
+            icon: "🎄",
+            place: "롯폰기 힐즈 크리스마스 일루미네이션",
+            area: "롯폰기 케야키자카 거리",
+            tag: "12월 한정 야경",
+            transport: "긴자 -> 롯폰기 (히비야선 9분) / 관람 후 오에도선 다이몬역까지 6분",
+            memo: "푸른빛 은하수 조명 사이로 보이는 도쿄타워 인생샷 포토존! 구경 후 오에도선 타고 6분 만에 숙소 복귀.",
+            mapUrl: "https://www.google.com/maps/search/?api=1&query=Roppongi+Hills+Keyakizaka"
+          }
+        ]
+      },
+      {
+        title: "DAY 3 (12/20 일) - 아침 공항 이동 & 귀국",
+        nodes: [
+          {
+            time: "07:10 - 08:30",
+            icon: "🚆",
+            place: "체크아웃 & 나리타 공항 이동",
+            area: "하마마츠초 / 다이몬역 출발",
+            tag: "시간표 사전 확인",
+            transport: "아사쿠사선 직통 열차 또는 닛포리(스카이라이너)/도쿄역(N'EX) 환승",
+            memo: "오전 11시 비행기이므로 늦어도 8시 30분~9시까지 공항 도착 필수! 역 편의점에서 아침 간식 구매.",
+            mapUrl: "https://www.google.com/maps/search/?api=1&query=Hamamatsucho+Station"
+          },
+          {
+            time: "08:30 - 11:00",
+            icon: "🎁",
+            place: "나리타 공항 면세점 쇼핑 & 11:00 출국",
+            area: "나리타 국제공항",
+            tag: "기념품 쇼핑",
+            transport: "오전 11:00 비행기 탑승",
+            memo: "출국 심사 후 로이스 초콜릿, 도쿄바나나, 시로이코이비토 등 면세점 선물 구매 후 귀국!",
+            mapUrl: "https://www.google.com/maps/search/?api=1&query=Narita+International+Airport"
+          }
+        ]
+      }
+    ];
+
+    let currentDay = 1; // 기본으로 가장 중요한 DAY 2 표시
+    let currentStep = 0;
+
+    function selectDay(dayIdx) {
+      currentDay = dayIdx;
+      currentStep = 0;
+      for (let i = 0; i < 3; i++) {
+        const tab = document.getElementById(`tab-${i}`);
+        if (i === dayIdx) {
+          tab.className = "py-2.5 px-2 rounded-xl text-xs font-bold transition-all tab-active";
+        } else {
+          tab.className = "py-2.5 px-2 rounded-xl text-xs font-bold transition-all text-slate-600 hover:bg-slate-100";
+        }
+      }
+      renderBoard();
+    }
+
+    function selectStep(stepIdx) {
+      currentStep = stepIdx;
+      renderBoard();
+    }
+
+    function renderBoard() {
+      const dayObj = scheduleData[currentDay];
+      const activeNode = dayObj.nodes[currentStep];
+
+      document.getElementById("day-title").innerText = dayObj.title;
+
+      // 상단 상세 카드 업데이트
+      const detailEl = document.getElementById("detail-card");
+      detailEl.innerHTML = `
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-extrabold text-rose-600 bg-rose-100 px-2.5 py-1 rounded-lg">${activeNode.time}</span>
+          <span class="text-xs font-bold text-slate-600 bg-slate-100 px-2.5 py-1 rounded-lg">#${activeNode.tag}</span>
+        </div>
+        <div class="flex items-start gap-3 mt-2">
+          <div class="text-3xl bg-slate-50 p-2.5 rounded-2xl border border-slate-100">${activeNode.icon}</div>
+          <div class="flex-1">
+            <h3 class="text-base font-extrabold text-slate-900 leading-snug">${activeNode.place}</h3>
+            <p class="text-xs text-slate-500 mt-0.5">📍 ${activeNode.area}</p>
+          </div>
+        </div>
+        <div class="mt-3.5 pt-3 border-t border-slate-100 text-xs space-y-1.5">
+          <p class="text-slate-700"><strong class="text-slate-900">🚇 이동:</strong> ${activeNode.transport}</p>
+          <p class="text-slate-600 leading-relaxed"><strong class="text-slate-900">💡 꿀팁:</strong> ${activeNode.memo}</p>
+        </div>
+        <div class="mt-4 flex gap-2">
+          <a href="${activeNode.mapUrl}" target="_blank" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white text-center text-xs font-bold py-2.5 rounded-xl transition">
+            🗺️ 구글 맵 위치 보기
+          </a>
+          ${activeNode.bookUrl ? `
+          <a href="${activeNode.bookUrl}" target="_blank" class="flex-1 bg-rose-500 hover:bg-rose-600 text-white text-center text-xs font-bold py-2.5 rounded-xl transition">
+            📅 예약 페이지 열기
+          </a>` : ''}
+        </div>
+      `;
+
+      // 타임라인 리스트 업데이트
+      const listEl = document.getElementById("timeline-list");
+      listEl.innerHTML = dayObj.nodes.map((node, idx) => `
+        <div onclick="selectStep(${idx})" class="cursor-pointer p-3.5 rounded-xl border-2 transition-all flex items-center gap-3 ${idx === currentStep ? 'step-active' : 'border-slate-100 hover:border-slate-200 bg-slate-50/50'}">
+          <div class="text-2xl">${node.icon}</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2">
+              <span class="text-[11px] font-bold ${idx === currentStep ? 'text-rose-600' : 'text-slate-500'}">${node.time}</span>
+              <span class="text-[10px] px-1.5 py-0.5 rounded bg-white border border-slate-200 text-slate-600 font-semibold">${node.tag}</span>
+            </div>
+            <p class="text-sm font-bold text-slate-800 truncate mt-0.5">${node.place}</p>
+          </div>
+          <div class="text-xs font-bold ${idx === currentStep ? 'text-rose-500' : 'text-slate-300'}">▶</div>
+        </div>
+      `).join('');
+    }
+
+    // 초기 실행 (DAY 1부터 보이게 하려면 selectDay(0)으로 변경 가능)
+    selectDay(0);
+  </script>
+</body>
+</html>
